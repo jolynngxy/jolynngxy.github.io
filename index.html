@@ -1,0 +1,65 @@
+<html>
+
+<header>
+<script>
+function submit() {
+  var oValue = document.getElementById("words").value;
+  if (oValue == "") { 
+    alert("Please enter a value!");
+  } else { 
+    var oArray = oValue.split(" ");
+    oArray.sort();
+    var oOutput = "";
+    for (i = 0; i < oArray.length; i++) {
+      oOutput = oOutput + oArray[i] + "<br>";
+    }
+    document.getElementById("trial").innerHTML = oOutput;
+    document.getElementById("words").value = "";
+  }
+}
+
+function addList() {
+  var oValue = document.getElementById("animal").value;
+  if (oValue == "") { 
+    alert("Please enter a value!");
+  } else { 
+    var oUl = document.getElementById("list");
+    var oLi = document.createElement("LI");
+    oLi.appendChild(document.createTextNode(oValue));
+    oLi.setAttribute("id", oValue);
+    oUl.appendChild(oLi);
+    var oCount = oUl.childElementCount;
+    document.getElementById("demo").innerHTML = oCount;
+    document.getElementById("animal").value = "";
+  }
+}
+
+</script>
+</header>
+
+<body>
+
+<p> Project 1: </p>
+
+<p id="trial"></p>
+
+<input id="words" type="text"/>
+
+<button id="button" onclick="submit();">Enter</button>
+
+<p> Homework 3: </p>
+<h1>Animals</h1>
+<p id="demo">3</p>
+
+<ul id="list">
+  <li id="Mouse">Mouse</li>
+  <li id="Cat">Cat</li>
+  <li id="Dog">Dog</li>
+</ul>
+
+<input id="animal" type="text"/>
+
+<button id="add" onclick="addList();">Add an animal</button>
+</body>
+
+</html>
